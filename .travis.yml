@@ -6,9 +6,9 @@ jdk:
 - oraclejdk7
 - oraclejdk8
 sudo: false
-script: sbt ++${TRAVIS_SCALA_VERSION} test $(if [[ "${TRAVIS_PULL_REQUEST}" == "false"
+script: sbt ++${TRAVIS_SCALA_VERSION} $(if [[ "${TRAVIS_PULL_REQUEST}" == "false"
   && ${JAVA_HOME} == $(jdk_switcher home oraclejdk7) && "${TRAVIS_BRANCH}" == "master"
-  ]]; then echo "publish"; fi)
+  ]]; then echo "publish"; fi) test
 env:
   global:
   - secure: b1e28WwBCg01L76oszgQdcyFs1JV7fbu8GE4y2GTb7j9DXmuV/myE7lLb9fMTCzercFKUY19y3UlQ5P6N+Teg1ZCR3mc9mDS8lDEGxwpNXBl+CLdhYV5smgAE0iPgB0u7haZJhqDvRxGr1MsNYC3Mp4W/ZT/LlGLQtZt7nOiGxY=
