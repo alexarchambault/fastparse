@@ -9,8 +9,8 @@ val shared = Seq(
   ) ++ (
     if (scalaVersion.value startsWith "2.11.") Nil
     else Seq(
-      compilerPlugin("org.scalamacros" % s"paradise" % "2.0.0" cross CrossVersion.full),
-      "org.scalamacros" %% s"quasiquotes" % "2.0.0"
+      compilerPlugin("org.scalamacros" % "paradise" % "2.0.1" cross CrossVersion.full),
+      "org.scalamacros" %% "quasiquotes" % "2.0.0"
     )
   ),
   libraryDependencies ++= Seq(
@@ -20,6 +20,7 @@ val shared = Seq(
   organization := "com.lihaoyi",
   version := _root_.fastparse.Constants.version,
   scalaVersion := "2.11.6",
+  crossScalaVersions := Seq("2.10.5", "2.11.6"),
   libraryDependencies += "com.lihaoyi" %% "acyclic" % "0.1.2" % "provided",
   addCompilerPlugin("com.lihaoyi" %% "acyclic" % "0.1.2"),
   autoCompilerPlugins := true,

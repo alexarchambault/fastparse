@@ -2,12 +2,11 @@ package fastparse
 
 import scala.annotation.switch
 import acyclic.file
-import scala.collection.mutable
 
 import scala.language.experimental.macros
 
 
-object Utils {
+object Utils extends UtilsCompat {
   /**
    * Type, which when summoned implicitly, provides the
    * name of the nearest enclosing method for your perusal
@@ -131,22 +130,6 @@ object Utils {
         val offset = c - first
         (array(offset >> 5) & 1 << (offset & 31)) != 0
       }
-    }
-  }
-
-  /**
-   * An trie node for quickly matching multiple strings which
-   * share the same prefix, one char at a time.
-   *
-   * The `LongMap` could be pretty easily replaced by a lookup-table
-   * `Array[TrieNode]`, but empirically that doesn't seem to give any
-   * performance improvements.
-   */
-  final class TrieNode{
-    val children: mutable.LongMap[TrieNode] = mutable.LongMap.empty
-    var word: String = null
-    def apply(c: Char) = {
-      children.getOrNull(c)
     }
   }
 }
