@@ -17,7 +17,7 @@ val shared = Seq(
     "com.lihaoyi" %%% "utest" % "0.3.0" % "test"
   ),
   scalaJSStage in Global := FullOptStage,
-  organization := "com.lihaoyi",
+  organization := "com.github.alexarchambault.tmp",
   version := _root_.fastparse.Constants.version,
   scalaVersion := "2.11.6",
   crossScalaVersions := Seq("2.10.5", "2.11.6"),
